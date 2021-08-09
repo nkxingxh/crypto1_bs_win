@@ -1,0 +1,39 @@
+以下命令/参数均在TDM-GCC 4.9.2 64-bit编译器测试通过
+
+————
+solve_bs
+————
+
+64位
+————————————————————
+gcc.exe solve_bs.c -o solve_bs.exe -O3 -m64 -std=gnu99 -g3 -march=native crypto1_bs.c crypto1_bs_crack.c crapto1-v3.3/crapto1.c crapto1-v3.3/crypto1.c -I crapto1-v3.3/ craptev1-v1.1/craptev1.c -I craptev1-v1.1/ -static -lpthread -finput-charset=UTF-8 -fexec-charset=gbk -static-libgcc -m64 -g3
+
+32位
+————————————————————
+gcc.exe solve_bs.c -o solve_bs.exe -O3 -m32 -std=gnu99 -g3 -march=native crypto1_bs.c crypto1_bs_crack.c crapto1-v3.3/crapto1.c crapto1-v3.3/crypto1.c -I crapto1-v3.3/ craptev1-v1.1/craptev1.c -I craptev1-v1.1/ -static -lpthread  -finput-charset=UTF-8 -fexec-charset=gbk -static-libgcc -m32 -g3
+
+
+Dev-C++编译器选项
+————————————————————
+√ 编译时加入以下命令
+-march=native crypto1_bs.c crypto1_bs_crack.c crapto1-v3.3/crapto1.c crapto1-v3.3/crypto1.c -I crapto1-v3.3/ craptev1-v1.1/craptev1.c -I craptev1-v1.1/ -static -lpthread -finput-charset=UTF-8 -fexec-charset=gbk
+————————————————————
+代码生成/优化	->	代码生成
+
+优化级别(-Ox)		High
+使用下列位宽编译(-mx)	64bit (可根据需要修改)
+语言标准(-std)		GNU C99
+————————————————————
+代码生成/优化	->	连接器
+
+产生调试信息		Yes (可根据需要修改)
+————————————————————
+
+
+——————————
+libnfc_crypto1_collect
+——————————
+//只能编译32位的（因为编译出来的libnfc.a是32位的，如果编译64位会不兼容）
+//编译之前先编译libnfc
+
+gcc -std=gnu99 -O3 -march=native libnfc_crypto1_collect.c crypto1_bs.c crypto1_bs_crack.c crapto1-v3.3/crapto1.c crapto1-v3.3/crypto1.c -I crapto1-v3.3/ craptev1-v1.1/craptev1.c -I craptev1-v1.1/ -static -m32 -o libnfc_crypto1_collect.exe -lpthread -lnfc

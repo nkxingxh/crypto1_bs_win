@@ -1,4 +1,4 @@
-Bitsliced Crypto-1 brute-forcer
+Bitsliced Crypto-1 brute-forcer for Windows
 ===============================
 
 A pure C(99) implementation of the [Crypto-1 cipher](https://en.wikipedia.org/wiki/Crypto-1) using the method of [bitslicing](https://en.wikipedia.org/wiki/Bit_slicing), which uses GNU vector extensions to be portable across SSE/AVX/AVX2 supporting architectures while offering the highest amount of possible parallelism.
@@ -59,6 +59,7 @@ License
 
 All the code in this repository is made available under the MIT license, except for the files `pwpiwi_proxmark3_hard_nested.patch` and `libnfc_crypto1_crack.c`, which are GPLv2 due to deriving from respectively Proxmark3 and MFOC.
 
+Copyright (c) 2021 NKXingXh
 Copyright (c) 2015-2016 Aram Verstegen
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
